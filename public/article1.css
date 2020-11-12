@@ -1,0 +1,34 @@
+body {
+  background-color: white;
+}
+
+h1 {
+  color: black;
+  font-size: 300%;
+  text-align: center;
+  font-family: arial;
+  background-color: lightgrey;
+}
+
+h2 {
+  font-size: 200%;
+  font-family: arial;
+  text-align: center;
+
+}
+
+h3 {
+  color: black;
+  font-family: arial;
+}
+
+p.paragraphHeader {
+  font-family: arial;
+  font-size: 150%;
+  background-color: lightgrey;
+}
+
+p.paragraph {
+  font-family: arial;
+
+}
