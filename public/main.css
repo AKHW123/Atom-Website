@@ -6,6 +6,7 @@
 
   a {
     font-family: arial;
+    text-align: center;
   }
   h1 {
     color: black;
@@ -16,6 +17,7 @@
 
   h2 {
     font-size: 200%;
+    text-align: center;
     font-family: arial;
     border: 2px solid black;
     border-radius: 5px;
@@ -24,8 +26,12 @@
 
   p {
     font-family: arial;
+    text-align: center;
+    font-size: 175%;
   }
 
+
+  }
   h3 {
     color: black;
     font-family: arial;
