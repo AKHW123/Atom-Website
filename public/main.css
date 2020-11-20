@@ -36,6 +36,10 @@
     color: black;
     font-family: arial;
   }
+  h1{
+    font-family: arial;
+    
+  }
 
   .decent {
     font-size: 175%;

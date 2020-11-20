@@ -10,6 +10,16 @@ function requestGameContent(){
 function loadGameContent(result){
   $("#game_content").html(result);
 }
+function onHover(){
+  $("#main_picture").attr('src', 'potato.jpg');
+}
+function offHover(){
+  $("#main_picture").attr('src', 'Hockey.png');
+}
+$("#main_picture").hover(function(){
+  $("#main_picture").attr('src', 'potato.jpg');},
+  $("#main_picture").attr('src', 'Hockey.png');}
+);
 
 $("#NHL").click(changeSomeHtml);
 $("#game_button").click(requestGameContent);
