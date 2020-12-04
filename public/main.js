@@ -151,19 +151,20 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-if (document.cookie == null){
-  document.cookie = 0;
-}
+
 clickedOnce = false;
 
 function countNumVisits(){
     if (clickedOnce == false){
       var c = parseInt(document.cookie);
       document.cookie = "" + (c+1);
+      if (("" + document.cookie + "").localeCompare("NaN") == 0){
+        //document.getElementById("visits").innerHTML = "You've visited this site time(s)!";
+        document.cookie = "1";
+      }
       document.getElementById("visits").innerHTML = "You've visited this site " + document.cookie + " time(s)!";
       clickedOnce = true;
     } else {
       document.getElementById("visits").innerHTML = "You've visited this site " + document.cookie + " time(s)!";
     }
 }
-$("#test").click(countNumVisits);
