@@ -4,6 +4,26 @@
     background-color: lightgrey;
   }
 
+  .news_buttons{
+    font-family: arial;
+    height: 50px;
+    width: 200px;
+    font-size: 125%;
+  }
+
+  .big_button{
+    font-family: arial;
+    height: 80px;
+    width: 400px;
+    font-size: 150%;
+  }
+
+  .visit_counter{
+    text-align: center;
+    font-family: arial;
+    font-size: 150%;
+  }
+
   a {
     font-family: arial;
     text-align: center;
@@ -38,7 +58,7 @@
   }
   h1{
     font-family: arial;
-    
+
   }
 
   .decent {
@@ -94,4 +114,7 @@
   }
   .dropdown:hover .dropdown-content {
     display: block;
+  }
+  .hidden {
+    display: none;
   }

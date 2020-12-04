@@ -11,13 +11,15 @@
 
   <h1>Welcome to My Home Page!</h1>
   <h2 id="NHL">Click here to learn the secret about this site.</h2>
-  <center><img src="Hockey.png" id="main_picture"></img></center>
-
-  <p>Here are some useful links:</p>
+  <br></br>
+  <center><button class="big_button" onclick="countNumVisits()" id="num_visits">Click here to see how many times you've visited this site!</button></center>
+  <br></br>
+  <div class="visit_counter" id="visits"></div>
+  <br></br>
   <div class="dropdown">
     <button class="dropbtn">menu
-    <i class="fa fa-caret-down"></i>
-  </button>
+      <i class="fa fa-caret-down"></i>
+    </button>
     <div class="dropdown-content">
       <a href="article1.html">My NHL 21 Article</a>
       <a href="https://github.com/AKHW123/Atom-Website">Github repo</a>
@@ -27,23 +29,37 @@
     </div>
 
   </div>
-  <br>
-  <h2>
+  <br></br>
+  <br></br>
+  <center><img src="https://firebasestorage.googleapis.com/v0/b/akseliwebsite.appspot.com/o/Hockey.png?alt=media&token=acd6e78e-cca3-4229-a709-717d5ee77479" id="main_picture"></img></center>
+  <br></br>
 
-  </h2>
+  <br></br>
+  <br></br>
+  <center id="JSONButtons"><button id="news_button" class="news_buttons">5-JSON/News Feed</button></center>
+  <br></br>
+  <div id="space"></div>
+  <br></br>
 
-  <center><button id="game_button" class="game-button"><p class="rainbow-text">Play a Game</p></button></center>
-
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-  <script src="main.js"></script>
+  <p id="news"></p>
+  <center><button id="game_button" class="game-button">
+      <p class="rainbow-text">Play a Game</p>
+    </button></center>
 
   <div id="game_content">
 
   </div>
 
-  <center><h1>listen to a song in finnish</h1></center>
+  <center>
+    <h1>listen to a song in finnish:</h1>
+  </center>
   <center><audio controls src="song.mp3"></audio></center>
+  <br></br>
+  <center><button id="real_news" class="news_buttons" onclick="getXMLNode('https://cors-anywhere.herokuapp.com/https://news.ycombinator.com/rss')">Sike here's the real news
+    </button></center>
 
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+  <script src="main.js"></script>
 
 
 </body>
