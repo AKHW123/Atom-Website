@@ -112,7 +112,12 @@ async function getXMLNode(url){
   jsonObject = xmlToJson(XmlNode);
 
   var articleNumber = getRandomInt(0, 29);
-  console.log(jsonObject['rss']['channel']['item'][articleNumber]);
+  //console.log(jsonObject['rss']['channel']['item'][articleNumber]['link']);
+  //"https://cors-anywhere.herokuapp.com/"
+  var link = "https://cors-anywhere.herokuapp.com/" + jsonObject['rss']['channel']['item'][articleNumber]['link'];
+  console.log(articleNumber);
+  console.log(link);
+  //document.getElementById("the_real_news").innerHTML = "<iframe src=" + link + ">"
   httpGet("https://cors-anywhere.herokuapp.com/" + jsonObject['rss']['channel']['item'][articleNumber]['link']);
   //document.getElementById("news").innerHTML = window.open(jsonObject['rss']['channel']['item'][0]['link']);
 }
@@ -140,10 +145,15 @@ function httpGet(theUrl)
 
 function createDiv(responsetext)
 {
-    var _body = document.getElementsByTagName('body')[0];
-    var _div = document.createElement('div');
-    _div.innerHTML = "<br></br>" + responsetext + "<link href=\"main.css\" rel=\"stylesheet\">" + "<script src=\"https://code.jquery.com/jquery-3.5.1.min.js\" crossorigin=\"anonymous\"></script><script src=\"main.js\"></script>";
-    _body.appendChild(_div);
+    //var _body = document.getElementsByTagName('body')[0];
+    //var _div = document.createElement('div');
+    //console.log(responsetext);
+    //var new_text = responsetext.replace(/https/g, "https://cors-anywhere.herokuapp.com/https");
+    document.getElementById("the_real_news").classList.remove("hidden");
+    document.getElementById("the_real_news").contentWindow.document.write(responsetext);
+
+    //_div.innerHTML = "<br></br>" + responsetext + "<link href=\"main.css\" rel=\"stylesheet\">" + "<script src=\"https://code.jquery.com/jquery-3.5.1.min.js\" crossorigin=\"anonymous\"></script><script src=\"main.js\"></script>";
+    //_body.appendChild(_div);
 }
 
 function getRandomInt(min, max) {
@@ -154,17 +164,32 @@ function getRandomInt(min, max) {
 
 clickedOnce = false;
 
-function countNumVisits(){
-    if (clickedOnce == false){
-      var c = parseInt(document.cookie);
-      document.cookie = "" + (c+1);
-      if (("" + document.cookie + "").localeCompare("NaN") == 0){
-        //document.getElementById("visits").innerHTML = "You've visited this site time(s)!";
-        document.cookie = "1";
-      }
-      document.getElementById("visits").innerHTML = "You've visited this site " + document.cookie + " time(s)!";
-      clickedOnce = true;
-    } else {
-      document.getElementById("visits").innerHTML = "You've visited this site " + document.cookie + " time(s)!";
+function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
     }
+}
+
+var c;
+function countNumVisits(){
+    var cookie = parseInt(document.cookie);
+    if (isNaN(cookie)){
+      deleteAllCookies();
+      document.cookie = "1";
+      cookie = 1;
+    }
+    if (clickedOnce == false){
+      document.getElementById("visits").innerHTML = "You've visited this site " + document.cookie + " time(s)!";
+      document.cookie = "" + (cookie+1);
+      c = cookie;
+      clickedOnce = true;
+    }else{
+      document.getElementById("visits").innerHTML = "You've visited this site " + c + " time(s)!";
+    }
+
 }

@@ -28,6 +28,11 @@
     font-family: arial;
     text-align: center;
   }
+
+  div{
+    font-family: arial;
+  }
+
   h1 {
     color: black;
     font-size: 300%;
@@ -35,6 +40,10 @@
     font-family: arial;
   }
 
+  iframe{
+    width: 90%;
+    height: 1000px;
+  }
   h2 {
     font-size: 200%;
     text-align: center;
@@ -101,6 +110,7 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
   }
+
   .dropdown-content a {
     float: none;
     color: black;
